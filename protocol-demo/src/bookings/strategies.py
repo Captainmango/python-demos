@@ -37,7 +37,7 @@ class PayOnExit(Bookable):
 
 
 class TestBooking:
-    def handle(self) -> None:
+    def handle(self):
         print("Hello, world. This is a test")
     
     def _take_payment(self, amount: int) -> None:

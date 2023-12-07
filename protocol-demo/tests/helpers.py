@@ -1,8 +1,5 @@
 from src.bookings.bookable import Bookable
 
 
-def validate_strategy_has_handle_method(strategy: Bookable):
-    try:
-        strategy.handle
-    except NotImplemented as ex:
-        assert False, f"Bookable protocol is not implemented for {strategy.__class__} raised {ex}"
+def validate_strategy_is_bookable(strategy):
+    assert isinstance(strategy, Bookable), f"{strategy.__class__} is not a Bookable"
