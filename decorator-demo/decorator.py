@@ -8,21 +8,20 @@ class Person:
         self.name = name
         self.is_programmer = i
 
-    def log():
+    def log(file:str="file.csv"):
         def log_decorator(func):
            def wrapper_func(self, thing:str=""):
                 job = "programmer" if self.is_programmer else "not programmer"
                 activity = thing.lower() if len(thing) > 0 else "unknown"
 
-                with open("file.csv", "a") as f:
+                with open(file, "a") as f:
                     f.write(f"{self.name},{self.age},{job},{activity}\n")
-                    f.close()
 
                 func(thing)
            return wrapper_func
         return log_decorator
     
-    @log()
+    @log("test.txt")
     def do_thing(thing:str):
         print("DECORATOR DID THE WORK")
 
